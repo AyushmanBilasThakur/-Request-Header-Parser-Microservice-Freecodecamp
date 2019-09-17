@@ -1,4 +1,5 @@
 const Express = require('express');
+const cors = require('cors');
 const path = require('path');
 
 const app = Express();
@@ -7,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.set('trust proxy', true);
 
+app.use(cors());
 app.use('/static',Express.static('static'));
 
 app.get('/',(req,res) => {
